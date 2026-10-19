@@ -7,24 +7,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 option(USE_GTEST "Use gtest tests" OFF)
 
-if(USE_GTEST)
-	include(FetchContent)
-	FetchContent_Declare(
-	  googletest
-	  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
-	)
-
-	set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-	FetchContent_MakeAvailable(googletest)
-
-	add_subdirectory(tests)
-endif(USE_GTEST)
-
-unset(USE_GTEST CACHE)
-
 add_subdirectory(add)
 
 add_executable(app main.cpp)
+target_link_libraries(app PRIVATE addlib)
 
-target_link_libraries(app PUBLIC addlib)
-
+if(USE_GTEST)
+    enable_testing()
+    add_subdirectory(tests)
+endif()

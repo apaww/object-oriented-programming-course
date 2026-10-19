@@ -1,13 +1,15 @@
-enable_testing()
+include(FetchContent)
+FetchContent_Declare(
+    googletest
+    URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+)
 
-add_executable(test test.cpp)
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
 
-target_link_libraries(test PUBLIC GTest::gtest_main)
-target_link_libraries(test PUBLIC addlib)
+add_executable(tests test.cpp)
 
-target_include_directories(test PUBLIC ${CMAKE_SOURCE_DIR}/add)
+target_link_libraries(tests PRIVATE GTest::gtest_main addlib)
 
 include(GoogleTest)
-
-gtest_discover_tests(test)
-
+gtest_discover_tests(tests)
