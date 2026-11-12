@@ -88,7 +88,7 @@ public:
         return *this;
     }
 
-    TemperatureSensor(TemperatureSensor&& other): item_id(other.item_id), in_batch_id(other.in_batch_id), current_temperature(other.current_temperature), last_temperatures(other.last_temperatures), size(other.size), capacity(other.capacity) {
+    TemperatureSensor(TemperatureSensor&& other): item_id(other.item_id), in_batch_id(other.in_batch_id), current_temperature(other.current_temperature), last_temperatures(other.last_temperatures), size(other.size), capacity(other.capacity) noexcept {
     	if (this != &other) {
 	    other.current_temperature = T(0);
 	    other.size = 0;
