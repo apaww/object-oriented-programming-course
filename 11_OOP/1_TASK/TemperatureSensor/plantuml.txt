@@ -1,0 +1,120 @@
+@startuml
+package TemperatureSensorLib <<Folder>>{
+
+Class TemperatureSensor{
+
+{field}
+
+-static const size_t DEFAULT_CAPACITY
+
+-static unsigned int fallback_id
+-static unsigned int object_count
+
+-const std::string item_id
+-std::string in_batch_id
+-double current_temperature
+-double* last_temperatures
+-size_t size
+-size_t capacity
+
++static const std::string classname
+
+{method}
+
+==
+
+-virtual void normalizeTemperature(double&);
+-void copyLastTemperatures(cosnt double*, size_t, size_t);
+
+#void normalize();
+
++TemperatureSensor();
++TemperatureSensor(const std::string&, const std::string&, double, const double*, size_t, size_t);
++TemperatureSensor(const TemperatureSensor&);
++TemperatureSensor& operator=(const TemperatureSensor);
++~TemperatureSensor()
+
++void setInBatchId(const std::string&);
++void setCurrentTemperature(double);
++void addLastTemperature(double);
+
++const std::string& getItemId() const;
++const std::string& getInBatchId() const;
++double getCurrentTemperature() const;
++size_t getSize() const;
++size_t getCapacity() const;
++const double* getLastTemperatures() const;
+
++double calcAverageLastTemperature() const;
++static void print_count();
++void printSensor(std::ostream&=std::cout) const;
++bool operator<(const TemperatureSensor&) const;
+
++friend std::ostream& operator<<(std::ostream&, const TemperatureSensor&);
++friend std::istream& operator>>(std::istream&, TemperatureSensor&);
+}
+
+Class MedicalTemperatureSensor {
+
+{field}
+
+-double lower_bound
+-double higher_bound
+
+{method}
+
+==
+
+-void normalizeTemperature(double&) override;
+
++MedicalTemperatureSensor(std::string, std::string, double, double*, size_t, size_t, double, double);
+
+}
+
+Class MedicalTemperatureSensorWithSignal {
+
+{field}
+
+-double beep_frequency
+
+{method}
+
+==
+
++MedicalTemperatureSensorWithSignal(std::string, std::string, double, double*, size_t, size_t, double, double, double);
+
+}
+
+Class BluetoothMedicalTemperatureSensor {
+
+{field}
+
+-std::string method
+
+{method}
+
+==
+
++BluetoothMedicalTemperatureSensor(std::string, std::string, double, double*, size_t, size_t, double, double, std::string);
+
+}
+
+Class BluetoothMedicalTemperatureSensorWithSignal {
+
+{field}
+
+{method}
+
+==
+
++BluetoothMedicalTemperatureSensorWithSignal(std::string, std::string, double, double*, size_t, size_t, double, double, double, std::string);
+
+}
+
+TemperatureSensor<|--MedicalTemperatureSensor
+MedicalTemperatureSensor<|--MedicalTemperatureSensorWithSignal:virtual
+MedicalTemperatureSensor<|--BluetoothMedicalTemperatureSensor:virtual
+BluetoothMedicalTemperatureSensor<|--BluetoothMedicalTemperatureSensorWithSignal 
+MedicalTemperatureSensorWithSignal<|--BluetoothMedicalTemperatureSensorWithSignal
+
+@enduml
