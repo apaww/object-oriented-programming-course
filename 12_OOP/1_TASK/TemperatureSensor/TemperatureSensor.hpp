@@ -3,9 +3,7 @@
 #include <iostream>
 #include <string>
 
-#include "AbstractTemperatureSensor.hpp"
-
-class TemperatureSensor: public AbstractTemperatureSensor {
+class TemperatureSensor{
 
 private:
     static unsigned int fallback_id;

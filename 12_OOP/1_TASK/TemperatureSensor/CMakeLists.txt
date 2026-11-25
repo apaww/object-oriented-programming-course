@@ -6,6 +6,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_library(temperaturesensorlib STATIC TemperatureSensor.cpp MedicalTemperatureSensor.hpp BluetoothMedicalTemperatureSensor.hpp)
+add_library(temperaturesensorlib STATIC TemperatureSensor.cpp TemperatureSensor.hpp Thermometer.hpp MedicalThermometer.hpp MedicalThermometerWithSignal.hpp MedicalThermometerWithSignalAndDataTransfer.hpp)
 
 target_include_directories(temperaturesensorlib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

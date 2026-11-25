@@ -1,24 +1,33 @@
 #include <iostream>
-#include "TemperatureSensor.hpp"
+#include "Thermometer.hpp"
+#include "MedicalThermometer.hpp"
+#include "MedicalThermometerWithSignal.hpp"
+#include "MedicalThermometerWithSignalAndDataTransfer.hpp"
 
 int main() {
-	double history[10] = {20.5, 21.0, 19.8, 22.3, 20.1, 21.7, 19.5, 20.9, 21.4, 20.0};
+  MedicalThermometer medical;
+  MedicalThermometerWithSignal signal;
+  MedicalThermometerWithSignalAndDataTransfer data;
 
-	TemperatureSensor original("001", "67", 21.5, history, 10, 10);
+  medical.set_temperature(36.6);
+  signal.set_temperature(37.5);
+  data.set_temperature(38.1);
 
-	TemperatureSensor copied = original;
+  Thermometer *thermometers[] = {&medical, &signal, &data};
 
-	TemperatureSensor assignment;
-	assignment = original;
+  for (Thermometer *thermometer : thermometers) {
+    thermometer->show_temperature();
+  }
 
-	try {
-		original.setCurrentTemperature(-1000);
-	} catch (const std::invalid_argument& e) {
-		std::cout << e.what() << std::endl;
-	}	
+  MedicalThermometer medicals[] = {medical, signal, data};
 
-	std::cout << "Enter new ibid and current temp: ";
-	std::cin >> original;
-	original.printSensor();
+  for (MedicalThermometer medcialT : medicals) {
+    medcialT.show_temperature();
+  }
+
+  signal.beep();
+  data.beep();
+  data.transfer_temperature();
+
 	return 0;
 }

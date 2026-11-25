@@ -13,12 +13,6 @@ add_subdirectory(TemperatureSensor)
 add_executable(og main.cpp)
 target_link_libraries(og PRIVATE temperaturesensorlib)
 
-add_executable(book newMain.cpp)
-target_link_libraries(book PRIVATE temperaturesensorlib)
-
-add_executable(last lastMain.cpp)
-target_link_libraries(last PRIVATE temperaturesensorlib)
-
 if(USE_GTEST)
     enable_testing()
     add_subdirectory(tests)
