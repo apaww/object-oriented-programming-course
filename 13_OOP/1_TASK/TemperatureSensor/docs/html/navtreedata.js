@@ -44,7 +44,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"MedicalThermometerWithSignalAndDataTransfer_8hpp.html"
+"MedicalThermometerSupplier_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

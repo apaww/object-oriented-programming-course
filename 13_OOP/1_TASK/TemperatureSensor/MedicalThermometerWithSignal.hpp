@@ -1,6 +1,6 @@
 /*!
  * \file MedicalThermometerWithSignal.hpp
- * \brief Contains abstract Thermometer class
+ * \brief Contains MedicalThermometer child class with added signaling functionality 
 */
 
 #pragma once

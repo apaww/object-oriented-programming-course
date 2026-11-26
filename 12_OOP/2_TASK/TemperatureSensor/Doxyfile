@@ -1,0 +1,12 @@
+OUTPUT_LANGUAGE = English
+
+PROJECT_NAME = "Thermometer Library"
+
+PROJECT_NUMBER = "1.0.0"
+
+OUTPUT_DIRECTORY = ./docs
+
+INPUT = ./Thermometer.hpp ./MedicalThermometer.hpp ./MedicalThermometerWithSignal.hpp ./MedicalThermometerWithSignalAndDataTransfer.hpp
+
+RECURSIVE = NO
+

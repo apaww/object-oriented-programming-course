@@ -6,5 +6,10 @@ var hierarchy =
           [ "MedicalThermometerWithSignalAndDataTransfer", "classMedicalThermometerWithSignalAndDataTransfer.html", null ]
         ] ]
       ] ]
+    ] ],
+    [ "ThermometerSupplier", "classThermometerSupplier.html", [
+      [ "MedicalThermometerSupplier", "classMedicalThermometerSupplier.html", null ],
+      [ "MedicalThermometerWithSignalAndDataTransferSupplier", "classMedicalThermometerWithSignalAndDataTransferSupplier.html", null ],
+      [ "MedicalThermometerWithSignalSupplier", "classMedicalThermometerWithSignalSupplier.html", null ]
     ] ]
 ];

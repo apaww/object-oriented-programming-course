@@ -1,6 +1,6 @@
 /*!
  * \file MedicalThermometer.hpp
- * \brief Contains abstract Thermometer class
+ * \brief Contains MedicalThermometer class
 */
 
 #pragma once

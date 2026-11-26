@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['transfer_5ftemperature_0',['transfer_temperature',['../classMedicalThermometerWithSignalAndDataTransfer.html#ab6aff225c1d4e6bab52f5af128fdc2d5',1,'MedicalThermometerWithSignalAndDataTransfer']]]
+  ['get_5fprice_0',['get_price',['../classThermometerSupplier.html#a1b6c519dfffce9ec3a8d73ef168f2398',1,'ThermometerSupplier']]]
 ];

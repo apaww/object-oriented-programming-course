@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['temperature_0',['temperature',['../classMedicalThermometer.html#a203eb7921c98e50cccaa8f3421b72852',1,'MedicalThermometer']]]
+  ['price_0',['price',['../classThermometerSupplier.html#a237c2f37d0f99b1a1b03078d3f2416d7',1,'ThermometerSupplier']]]
 ];
